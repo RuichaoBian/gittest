@@ -1,18 +1,24 @@
 """
-V1.0
-货币兑换函数
-人民币转美元
+V2.0
+货币兑换程序
+人民币与美元相互转化
 2018/7/2
 """
 rmb_num = 0
 USD_CNY = 6.6541
 while 1:
-    rmb_str = input("请输入人民币金额:")
-    
-    rmb_num = eval(rmb_str)
-    if rmb_num < 0:
+    str = input("请输入金额和种类:")
+	num = eval(str[:-2])
+	if num < 0:
         break
-    usd_num = rmb_num * USD_CNY
+	print(num)
+    if str[-3:] == 'CNY':	#人民币
+		usd_num = num * USD_CNY
+		print("美元金额:",usd_num)
+	elif str[-3:] == 'USD':	#美元
+		cny_num = num / USD_CNY
+		print('人民币金额:',cny_num)
+	else
+		print("无法识别的货币种类")
     
-    print("美元金额:",usd_num)
 print("输入金额错误,程序退出")
